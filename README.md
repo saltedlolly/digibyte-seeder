@@ -19,25 +19,25 @@ If you are intending to run a DigiByte Seeder, you are encouraged to join the [D
 SETUP DOMAIN NAME
 -----------------
 
-You need to use a domain name where you have access to the DNS settings. We will use digidomain.com for this example. Assuming you want to run a DNS seed on seed.digidomain.com, you will need an authorative NS record in digidomain.com's domain record, pointing to for example vps.digidomain.com. You will aslo need an A record for vps.digidomain.com pointing at the IP address of the VPS.
+You need to use a domain name where you have access to the DNS settings. Assuming you want to run a DNS seed on seed.example.com, you will need an authorative NS record in example.com's domain record, pointing to for example vps.example.com. You will aslo need an A record for vps.example.com pointing at the IP address of the VPS.
 
 Create an NS record:
 
-- Host:     ```seed.digidomain.com``` or ```testnetseed.digidomain.com```  [ The desired address of your DigiByte Seeder. ]
+- Host:     ```seed.example.com``` or ```testnetseed.example.com```  [ The desired address of your DigiByte Seeder. ]
 - Answer:   ```vps.digdomain.com```                                         [ A URL to identify your VPS. ] 
 
 Create an A record:
 
-- Host:     ```vps.digidomain.com```                                        [ Use the same name you set above. ]
+- Host:     ```vps.example.com```                                        [ Use the same name you set above. ]
 - Answer:   ```123.123.123.123```                                           [ The IP address of your VPS. ] 
 
 Test it:
 
-$ ```dig -t NS seed.digidomain.com```
+$ ```dig -t NS seed.example.com```
 
 Expected response:
 
-seed.digidomain.com.   86400    IN      NS     vps.digidomain.com.
+seed.example.com.   86400    IN      NS     vps.example.com.
 
 
 COMPILE SOFTWARE
@@ -111,15 +111,15 @@ $ ```tmux new -s dgbseeder```
 
 To run a mainnet seeder, enter:
 
-$ ```sudo ./dnsseed -h seed.digidomain.com -n vps.digidomain.com -m email.digidomain.com -p 5353 -a 123.123.123.123```
+$ ```sudo ./dnsseed -h seed.example.com -n vps.example.com -m email.example.com -p 5353 -a 123.123.123.123```
 
 To run a testnet seeder, enter:
 
-$ ```sudo ./dnsseed -h seed.digidomain.com -n vps.digidomain.com -m email.digidomain.com -p 5353 -a 123.123.123.123 --testnet```
+$ ```sudo ./dnsseed -h seed.example.com -n vps.example.com -m email.example.com -p 5353 -a 123.123.123.123 --testnet```
 
-- Subsitute ```seed.digidomain.com``` with the NS Host record.
-- Subsitute ```vps.digidomain.com``` with the A Host record.
-- Subsitute ```email.digidomain.com``` with an email address that you can be reached at for the SOA records, substituting the @ for a period. So youremail@digidomain.com would be youremail.digidomain.com. [This can be omitted if desired - remove ```-m  email.digidomain.com``` from the command.]
+- Subsitute ```seed.example.com``` with the NS Host record.
+- Subsitute ```vps.example.com``` with the A Host record.
+- Subsitute ```email.example.com``` with an email address that you can be reached at for the SOA records, substituting the @ for a period. So youremail@example.com would be youremail.example.com. [This can be omitted if desired - remove ```-m  email.example.com``` from the command.]
 - Subsitute 123.123.123.123 with IP address of your VPS from Step 1.
 - If you are running testnet seeder, note that you must include the ```--testnet``` flag.
 
@@ -134,7 +134,7 @@ TEST YOUR SEEDER
 
 To verify that your DigiByte Seeder is setup correctly, open a web browser and visit:
 
-$ ```https://www.whatsmydns.net/#A/seed.digidomain.com```
+$ ```https://www.whatsmydns.net/#A/seed.example.com```
 
 Enter the domain you chose for your seeder.
 
