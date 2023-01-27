@@ -24,7 +24,7 @@ You need to use a domain name where you have access to the DNS settings. Assumin
 Create an NS record:
 
 - Host:     ```seed.example.com``` or ```testnetseed.example.com```  [ The desired address of your DigiByte Seeder. ]
-- Answer:   ```vps.digdomain.com```                                         [ A URL to identify your VPS. ] 
+- Answer:   ```vps.example.com```                                         [ A URL to identify your VPS. ] 
 
 Create an A record:
 
