@@ -119,7 +119,7 @@ $ ```sudo ./dnsseed -h seed.digidomain.com -n vps.digidomain.com -m email.digido
 
 - Subsitute ```seed.digidomain.com``` with the NS Host record.
 - Subsitute ```vps.digidomain.com``` with the A Host record.
-- Subsitute ```email.digidomain.com``` with an email address that you can be reached at for the SOA records, substituting the @ for a period. So youremail@digidomain.com would be youremail.digidomain.com. [This can be omitted if desired - remove "```-m  email.digidomain.com```" from the command.]
+- Subsitute ```email.digidomain.com``` with an email address that you can be reached at for the SOA records, substituting the @ for a period. So youremail@digidomain.com would be youremail.digidomain.com. [This can be omitted if desired - remove ```-m  email.digidomain.com``` from the command.]
 - Subsitute 123.123.123.123 with IP address of your VPS from Step 1.
 - If you are running testnet seeder, note that you must include the ```--testnet``` flag.
 
