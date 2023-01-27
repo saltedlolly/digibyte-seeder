@@ -11,21 +11,25 @@ Features:
 * very low memory (a few tens of megabytes) and cpu requirements.
 * crawlers run in parallel (by default 96 threads simultaneously).
 
+JOIN DGBCIT
+-----------
 
-Setup Domain Name
+If you are intending to run a DigiByte Seeder, you are encouraged to join the [DigiByte Core Infrastructure Team Telegram group](https://t.me/DGBCIT). The group offers a detailed tutorial for setting up your DigiByte Seeder, and community support if you need help.
+
+SETUP DOMAIN NAME
 -----------------
 
 You need to use a domain name where you have access to the DNS settings. We will use digidomain.com for this example. Assuming you want to run a DNS seed on seed.digidomain.com, you will need an authorative NS record in digidomain.com's domain record, pointing to for example vps.digidomain.com. You will aslo need an A record for vps.digidomain.com pointing at the IP address of the VPS.
 
 Create an NS record:
 
-- Host:     **seed.digidomain.com** or **testnetseed.digidomain.com**  [ The desired address of your DigiByte Seeder. ]
-- Answer:   **vps.digdomain.com**                                      [ A URL to identify your VPS. ] 
+- Host:     ````seed.digidomain.com``` or ```testnetseed.digidomain.com```  [ The desired address of your DigiByte Seeder. ]
+- Answer:   ```vps.digdomain.com```                                         [ A URL to identify your VPS. ] 
 
 Create an A record:
 
-- Host:     **vps.digidomain.com**                                      [ Use the same name you set above. ]
-- Answer:   **123.123.123.123**                                         [ The IP address of your VPS. ] 
+- Host:     ```vps.digidomain.com```                                        [ Use the same name you set above. ]
+- Answer:   ```123.123.123.123```                                           [ The IP address of your VPS. ] 
 
 Test it:
 
@@ -36,7 +40,7 @@ Expected response:
 seed.digidomain.com.   86400    IN      NS     vps.digidomain.com.
 
 
-Compile Software
+COMPILE SOFTWARE
 ----------------
 
 Compiling will require boost and ssl.  On debian systems, these are provided
@@ -71,8 +75,8 @@ $ ```make```
 This will produce the `dnsseed` binary.
 
 
-Launch DigiByte Seeder
-----------------------
+START DIGIBYTE SEEDER
+---------------------
 
 To view the software flag options, enter:
 
@@ -151,9 +155,3 @@ All Ubuntu releases from 16.10 onwards come installed with systemd-resolved, whi
 The recommended solution is to bind the seeder to a specific IP address
 
 ./dnsseed -h dnsseed.example.com -n vps.example.com -a 123.123.123.123
-
-
-DGBCIT
-------
-
-If you are intending to run a DigiByte Seeder, you are encouraged to join the DigiByte Core Infrastructure Team. Please join the Telegram group here.
