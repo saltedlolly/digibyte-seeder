@@ -1,20 +1,17 @@
-digibyte-seeder
+DigiByte Seeder
 ===============
 
-DigiByte-seeder is a crawler for the DigiByte network, which exposes a list
-of reliable nodes via a built-in DNS server.
+DigiByte-seeder is a crawler for the DigiByte network, which exposes a list of reliable nodes via a built-in DNS server.
 
 Features:
 * regularly revisits known nodes to check their availability
 * bans nodes after enough failures, or bad behaviour
-* accepts nodes down to v0.5.0 to request new IP addresses from,
-  but only reports good post-v0.6.9 nodes.
-* keeps statistics over (exponential) windows of 2 hours, 8 hours,
-  1 day and 1 week, to base decisions on.
+* accepts nodes down to v0.5.0 to request new IP addresses from, but only reports good post-v0.6.9 nodes.
+* keeps statistics over (exponential) windows of 2 hours, 8 hours, 1 day and 1 week, to base decisions on.
 * very low memory (a few tens of megabytes) and cpu requirements.
 * crawlers run in parallel (by default 96 threads simultaneously).
 
-DOMAIN NAME SETUP
+Domain Name Setup
 -----------------
 
 You need to use a domain name where you have access to the DNS settings. We will use digidomain.com for this example:
@@ -30,19 +27,35 @@ Create an A record:-
 - Answer:   **123.123.123.123**                                         [ The IP address of your VPS. ] 
 
 
-COMPILING
+Compiling
 ---------
 
 Compiling will require boost and ssl.  On debian systems, these are provided
 by `libboost-dev` and `libssl-dev` respectively.
 
-Install software requirements using:
+Perform a system update:
 
-$ ```sudo apt-get install build-essential libboost-all-dev libssl-dev```
+$ ```sudo apt-get update```
 
-Clone repo to home folder:
+Install the software packages needed to compile the DigiByte Seeder:
 
-$
+$ ```sudo apt-get install gcc g++ build-essential libboost-all-dev libssl-dev```
+
+Clone the DigiByte Seeder software into your home folder:
+
+$ ```cd ~/```
+$ ```git clone https://github.com/DigiByte-Core/digibyte-seeder```
+
+[ OPTIONAL ] If setting up a testnet node, you need to make a change to protocol.cpp:
+
+$ ```nano ~/digibyte-seeder/protocol.cpp``
+
+Change line 25 to: ```unsigned char pchMessageStart[4] = { 0xfd, 0xc8, 0xbd, 0xdd };```
+
+Compile the software:
+
+$ ```cd ~/digibyte-seeder```
+$ ```make```
 
 USAGE
 -----
