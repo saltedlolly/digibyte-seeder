@@ -14,7 +14,7 @@ Features:
 JOIN DGBCIT
 -----------
 
-If you are intending to run a DigiByte Seeder, you are encouraged to join the [DigiByte Core Infrastructure Team Telegram group](https://t.me/DGBCIT). The group offers a detailed tutorial for setting up your DigiByte Seeder, and community support if you need help.
+If you are intending to run a DigiByte Seeder, you are encouraged to join the [DigiByte Core Infrastructure Team Telegram group](https://t.me/DGBCIT). The group offers a detailed step-by-step tutorial for setting up your DigiByte Seeder, and community support if you need help.
 
 SETUP DOMAIN NAME
 -----------------
@@ -23,7 +23,7 @@ You need to use a domain name where you have access to the DNS settings. We will
 
 Create an NS record:
 
-- Host:     ````seed.digidomain.com``` or ```testnetseed.digidomain.com```  [ The desired address of your DigiByte Seeder. ]
+- Host:     ```seed.digidomain.com``` or ```testnetseed.digidomain.com```  [ The desired address of your DigiByte Seeder. ]
 - Answer:   ```vps.digdomain.com```                                         [ A URL to identify your VPS. ] 
 
 Create an A record:
