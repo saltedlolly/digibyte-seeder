@@ -35,9 +35,7 @@ Test it:
 
 $ ```dig -t NS seed.example.com```
 
-Expected response:
-
-seed.example.com.   86400    IN      NS     vps.example.com.
+Expected response: ```seed.example.com.   86400    IN      NS     vps.example.com.```
 
 
 COMPILE SOFTWARE
