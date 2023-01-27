@@ -111,11 +111,11 @@ $ ```tmux new -s dgbseeder```
 
 To run a mainnet seeder, enter:
 
-$ ```./dnsseed -h seed.digidomain.com -n vps.digidomain.com -m email.digidomain.com -p 5353 -a 123.123.123.123```
+$ ```sudo ./dnsseed -h seed.digidomain.com -n vps.digidomain.com -m email.digidomain.com -p 5353 -a 123.123.123.123```
 
 To run a testnet seeder, enter:
 
-$ ```./dnsseed -h seed.digidomain.com -n vps.digidomain.com -m email.digidomain.com -p 5353 -a 123.123.123.123 --testnet```
+$ ```sudo ./dnsseed -h seed.digidomain.com -n vps.digidomain.com -m email.digidomain.com -p 5353 -a 123.123.123.123 --testnet```
 
 - Subsitute ```seed.digidomain.com``` with the NS Host record.
 - Subsitute ```vps.digidomain.com``` with the A Host record.
@@ -129,6 +129,14 @@ When you need to reconnect to the tmus session later, enter:
 
 $ ```tmux a -t dgbseeder```
 
+TEST YOUR SEEDER
+----------------
+
+To verify that your DigiByte Seeder is setup correctly, open a web browser and visit:
+
+$ ```https://www.whatsmydns.net/#A/seed.digidomain.com```
+
+Enter the domain you chose for your seeder.
 
 RUNNING AS NON-ROOT
 -------------------
@@ -155,3 +163,12 @@ All Ubuntu releases from 16.10 onwards come installed with systemd-resolved, whi
 The recommended solution is to bind the seeder to a specific IP address
 
 ./dnsseed -h dnsseed.example.com -n vps.example.com -a 123.123.123.123
+
+FIREWALL
+--------
+
+If you are still having a problem, try opening ports 53 and 5353 on your firewall:
+
+$ ```sudo ufw allow 5353```
+
+$ ```sudo ufw allow 53```
