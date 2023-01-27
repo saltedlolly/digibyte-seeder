@@ -11,7 +11,8 @@ Features:
 * very low memory (a few tens of megabytes) and cpu requirements.
 * crawlers run in parallel (by default 96 threads simultaneously).
 
-Domain Name Setup
+
+DOMAIN NAME SETUP
 -----------------
 
 You need to use a domain name where you have access to the DNS settings. We will use digidomain.com for this example:
@@ -19,15 +20,23 @@ You need to use a domain name where you have access to the DNS settings. We will
 Create an NS record:-
 
 - Host:     **seed.digidomain.com** or **testnetseed.digidomain.com**  [ The desired address of your DigiByte Seeder. ]
-- Answer:   **vps.digdomain.com** [ A URL to identify your VPS. ] 
+- Answer:   **vps.digdomain.com**                                      [ A URL to identify your VPS. ] 
 
 Create an A record:-
 
 - Host:     **vps.digidomain.com**                                      [ Use the same name you set above. ]
 - Answer:   **123.123.123.123**                                         [ The IP address of your VPS. ] 
 
+Test it:-
 
-Compiling
+$ ```dig -t NS seed.digidomain.com```
+
+Response:
+
+seed.digidomain.com.   86400    IN      NS     vps.digidomain.com.
+
+
+COMPILING
 ---------
 
 Compiling will require boost and ssl.  On debian systems, these are provided
@@ -44,6 +53,7 @@ $ ```sudo apt-get install gcc g++ build-essential libboost-all-dev libssl-dev```
 Clone the DigiByte Seeder software into your home folder:
 
 $ ```cd ~/```
+
 $ ```git clone https://github.com/DigiByte-Core/digibyte-seeder```
 
 [ OPTIONAL ] If setting up a testnet node, you need to make a change to protocol.cpp:
@@ -55,7 +65,11 @@ Change line 25 to: ```unsigned char pchMessageStart[4] = { 0xfd, 0xc8, 0xbd, 0xd
 Compile the software:
 
 $ ```cd ~/digibyte-seeder```
+
 $ ```make```
+
+This will produce the `dnsseed` binary.
+
 
 USAGE
 -----
@@ -80,14 +94,6 @@ SOFTWARE FLAGS
 --------------
 
 
-COMPILING
----------
-Compiling will require boost and ssl.  On debian systems, these are provided
-by `libboost-dev` and `libssl-dev` respectively.
-
-$ make
-
-This will produce the `dnsseed` binary.
 
 
 RUNNING AS NON-ROOT
