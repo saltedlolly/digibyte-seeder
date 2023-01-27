@@ -17,21 +17,21 @@ DOMAIN NAME SETUP
 
 You need to use a domain name where you have access to the DNS settings. We will use digidomain.com for this example:
 
-Create an NS record:-
+Create an NS record:
 
 - Host:     **seed.digidomain.com** or **testnetseed.digidomain.com**  [ The desired address of your DigiByte Seeder. ]
 - Answer:   **vps.digdomain.com**                                      [ A URL to identify your VPS. ] 
 
-Create an A record:-
+Create an A record:
 
 - Host:     **vps.digidomain.com**                                      [ Use the same name you set above. ]
 - Answer:   **123.123.123.123**                                         [ The IP address of your VPS. ] 
 
-Test it:-
+Test it:
 
 $ ```dig -t NS seed.digidomain.com```
 
-Response:
+Expected response:
 
 seed.digidomain.com.   86400    IN      NS     vps.digidomain.com.
 
