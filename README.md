@@ -162,7 +162,7 @@ All Ubuntu releases from 16.10 onwards come installed with systemd-resolved, whi
 
 The recommended solution is to bind the seeder to a specific IP address
 
-./dnsseed -h dnsseed.example.com -n vps.example.com -a 123.123.123.123
+$ ```./dnsseed -h dnsseed.example.com -n vps.example.com -a 123.123.123.123```
 
 FIREWALL
 --------
