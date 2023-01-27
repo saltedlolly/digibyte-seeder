@@ -56,9 +56,9 @@ $ ```cd ~/```
 
 $ ```git clone https://github.com/DigiByte-Core/digibyte-seeder```
 
-[ OPTIONAL ] If setting up a testnet node, you need to make a change to protocol.cpp:
+If setting up a testnet node, you need to make a change to protocol.cpp:
 
-$ ```nano ~/digibyte-seeder/protocol.cpp``
+$ ```nano ~/digibyte-seeder/protocol.cpp```
 
 Change line 25 to: ```unsigned char pchMessageStart[4] = { 0xfd, 0xc8, 0xbd, 0xdd };```
 
