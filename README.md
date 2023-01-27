@@ -14,7 +14,7 @@ Features:
 JOIN DGBCIT
 -----------
 
-If you are intending to run a DigiByte Seeder, you are encouraged to join the [DigiByte Core Infrastructure Team Telegram group](https://t.me/DGBCIT). The group offers a detailed step-by-step tutorial for setting up your DigiByte Seeder, and community support if you need help.
+If you are intending to run a DigiByte Seeder, you are encouraged to join the [DGBCIT Telegram group](https://t.me/DGBCIT). The DigiByte Core Infrastructure Team helps coordinate the seeders on the network. The team provides a detailed step-by-step tutorial for setting up your DigiByte Seeder and community support if you need help. Participation is optional but encouraged. More info [here](https://www.evernote.com/shard/s20/client/snv?noteGuid=46de28c1-9066-4ca5-8048-6f29f9e3bf52&noteKey=66077e0b3f969350ebefe4228d731425&sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs20%2Fsh%2F46de28c1-9066-4ca5-8048-6f29f9e3bf52%2F66077e0b3f969350ebefe4228d731425&title=Setting%2Bup%2Ba%2BDigiByte%2BSeeder). 
 
 SETUP DOMAIN NAME
 -----------------
@@ -160,7 +160,7 @@ All Ubuntu releases from 16.10 onwards come installed with systemd-resolved, whi
 
 The recommended solution is to bind the seeder to a specific IP address
 
-$ ```./dnsseed -h dnsseed.example.com -n vps.example.com -a 123.123.123.123```
+$ ```./dnsseed -h seed.example.com -n vps.example.com -a 123.123.123.123```
 
 FIREWALL
 --------
