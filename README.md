@@ -12,10 +12,10 @@ Features:
 * crawlers run in parallel (by default 96 threads simultaneously).
 
 
-DOMAIN NAME SETUP
+Setup Domain Name
 -----------------
 
-You need to use a domain name where you have access to the DNS settings. We will use digidomain.com for this example:
+You need to use a domain name where you have access to the DNS settings. We will use digidomain.com for this example. Assuming you want to run a DNS seed on seed.digidomain.com, you will need an authorative NS record in digidomain.com's domain record, pointing to for example vps.digidomain.com. You will aslo need an A record for vps.digidomain.com pointing at the IP address of the VPS.
 
 Create an NS record:
 
@@ -36,8 +36,8 @@ Expected response:
 seed.digidomain.com.   86400    IN      NS     vps.digidomain.com.
 
 
-COMPILING
----------
+Compile Software
+----------------
 
 Compiling will require boost and ssl.  On debian systems, these are provided
 by `libboost-dev` and `libssl-dev` respectively.
@@ -71,29 +71,59 @@ $ ```make```
 This will produce the `dnsseed` binary.
 
 
-USAGE
------
+Launch DigiByte Seeder
+----------------------
 
-Assuming you want to run a dns seed on dnsseed.example.com, you will
-need an authorative NS record in example.com's domain record, pointing
-to for example vps.example.com:
+To view the software flag options, enter:
 
-$ dig -t NS dnsseed.example.com
+$ ```./dnsseed -h```
 
-;; ANSWER SECTION
-dnsseed.example.com.   86400    IN      NS     vps.example.com.
+It will display:
 
-On the system vps.example.com, you can now run dnsseed:
+```
+Usage: ./dnsseed -h <host> -n <ns> [-m <mbox>] [-t <threads>] [-p <port>]
 
-./dnsseed -h dnsseed.example.com -n vps.example.com
+Options:
+-h <host>       Hostname of the DNS seed
+-n <ns>         Hostname of the nameserver
+-m <mbox>       E-Mail address reported in SOA records
+-t <threads>    Number of crawlers to run in parallel (default 96)
+-d <threads>    Number of DNS server threads (default 4)
+-a <address>    Address to listen on (default ::)
+-p <port>       UDP port to listen on (default 53)
+-o <ip:port>    Tor proxy IP/Port
+-i <ip:port>    IPV4 SOCKS5 proxy IP/Port
+-k <ip:port>    IPV6 SOCKS5 proxy IP/Port
+-w f1,f2,...    Allow these flag combinations as filters
+--testnet       Use testnet
+--wipeban       Wipe list of banned nodes
+--wipeignore    Wipe list of ignored nodes
+-?, --help      Show this text
+```
 
-If you want the DNS server to report SOA records, please provide an
-e-mail address (with the @ part replaced by .) using -m.
+To make it easy to check on it, open a tmux session in which to run your DigiByte Seeder:
 
-SOFTWARE FLAGS
---------------
+$ ```tmux new -s dgbseeder```
 
+To run a mainnet seeder, enter:
 
+$ ```./dnsseed -h seed.digidomain.com -n vps.digidomain.com -m email.digidomain.com -p 5353 -a 123.123.123.123```
+
+To run a testnet seeder, enter:
+
+$ ```./dnsseed -h seed.digidomain.com -n vps.digidomain.com -m email.digidomain.com -p 5353 -a 123.123.123.123 --testnet```
+
+- Subsitute ```seed.digidomain.com``` with the NS Host record.
+- Subsitute ```vps.digidomain.com``` with the A Host record.
+- Subsitute ```email.digidomain.com``` with an email address that you can be reached at for the SOA records, substituting the @ for a period. So youremail@digidomain.com would be youremail.digidomain.com. [This can be omitted if desired - remove "```-m  email.digidomain.com```" from the command.]
+- Subsitute 123.123.123.123 with IP address of your VPS from Step 1.
+- If you are running testnet seeder, note that you must include the ```--testnet``` flag.
+
+Disconnect from the tmux session by pressing ```Ctrl-B```, followed by ```D```
+
+When you need to reconnect to the tmus session later, enter:
+
+$ ```tmux a -t dgbseeder```
 
 
 RUNNING AS NON-ROOT
