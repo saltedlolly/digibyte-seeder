@@ -16,7 +16,7 @@ JOIN DGBCIT
 
 If you are intending to run a DigiByte Seeder, you are encouraged to join the [DGBCIT Telegram group](https://t.me/DGBCIT). The DigiByte Core Infrastructure Team helps coordinate the seeders on the network. The team provides a detailed step-by-step tutorial for setting up your DigiByte Seeder and community support if you need help. Participation is optional but encouraged. More info [here](https://www.evernote.com/shard/s20/client/snv?noteGuid=46de28c1-9066-4ca5-8048-6f29f9e3bf52&noteKey=66077e0b3f969350ebefe4228d731425&sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs20%2Fsh%2F46de28c1-9066-4ca5-8048-6f29f9e3bf52%2F66077e0b3f969350ebefe4228d731425&title=Setting%2Bup%2Ba%2BDigiByte%2BSeeder). 
 
-SETUP DOMAIN NAME
+SETUP DNS RECORDS
 -----------------
 
 You need to use a domain name where you have access to the DNS settings. Assuming you want to run a DNS seed on seed.example.com, you will need an authorative NS record in example.com's domain record, pointing to for example vps.example.com. You will aslo need an A record for vps.example.com pointing at the IP address of the VPS.
@@ -31,12 +31,21 @@ Create an A record:
 - Host:     ```vps.example.com```                                        [ Use the same name you set above. ]
 - Answer:   ```123.123.123.123```                                           [ The IP address of your VPS. ] 
 
-Test it:
+Test the NS record:
 
 $ ```dig -t NS seed.example.com```
 
-Expected response: ```seed.example.com.   86400    IN      NS     vps.example.com.```
+Expected response: ```seed.example.com.   21600    IN      NS     vps.example.com.```
 
+(It should return the URL you chose to identify your VPS.)
+
+Test the A record:
+
+$ ```dig -t A vps.example.com```
+
+Expected response: ```vps.example.com.   161    IN      A     123.123.123.123```
+
+(It should return the IP address of your VPS.)
 
 COMPILE SOFTWARE
 ----------------
@@ -80,7 +89,7 @@ To view the software flag options, enter:
 
 $ ```./dnsseed -h```
 
-It will display:
+These are the flags supported by the dnsseed binary:
 
 ```
 Usage: ./dnsseed -h <host> -n <ns> [-m <mbox>] [-t <threads>] [-p <port>]
@@ -118,7 +127,7 @@ $ ```sudo ./dnsseed -h seed.example.com -n vps.example.com -m email.example.com 
 - Subsitute ```seed.example.com``` with the NS Host record.
 - Subsitute ```vps.example.com``` with the A Host record.
 - Subsitute ```email.example.com``` with an email address that you can be reached at for the SOA records, substituting the @ for a period. So youremail@example.com would be youremail.example.com. [This can be omitted if desired - remove ```-m  email.example.com``` from the command.]
-- Subsitute 123.123.123.123 with IP address of your VPS from Step 1.
+- Subsitute ```123.123.123.123``` with IP address of your VPS from Step 1.
 - If you are running testnet seeder, note that you must include the ```--testnet``` flag.
 
 Disconnect from the tmux session by pressing ```Ctrl-B```, followed by ```D```
