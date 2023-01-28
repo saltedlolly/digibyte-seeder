@@ -112,7 +112,7 @@ Options:
 -?, --help      Show this text
 ```
 
-To make it easy to check on it, open a tmux session in which to run your DigiByte Seeder:
+To make it easy to check on it in future, open a tmux session in which to run your DigiByte Seeder:
 
 $ ```tmux new -s dgbseeder```
 
@@ -130,6 +130,8 @@ $ ```sudo ./dnsseed -h seed.example.com -n vps.example.com -m email.example.com 
 - Subsitute ```123.123.123.123``` with IP address of your VPS from Step 1.
 - If you are running testnet seeder, note that you must include the ```--testnet``` flag.
 
+The software will begin crawling the DigiByte network. You may need to wait or minute or two to see results coming in. Check that the available count is climbing. This is a good sign that it is working correctly.
+
 Disconnect from the tmux session by pressing ```Ctrl-B```, followed by ```D```
 
 When you need to reconnect to the tmus session later, enter:
@@ -141,9 +143,9 @@ TEST YOUR SEEDER
 
 To verify that your DigiByte Seeder is setup correctly, open a web browser and visit:
 
-$ ```https://www.whatsmydns.net/#A/seed.example.com```
+[https://www.whatsmydns.net/#A/seed.example.com](https://www.whatsmydns.net/#A/seed.digibyte.help)
 
-Enter the domain you chose for your seeder.
+Enter the domain you chose for your seeder. You should see a list of IP addresses returned for each location.
 
 RUNNING AS NON-ROOT
 -------------------
