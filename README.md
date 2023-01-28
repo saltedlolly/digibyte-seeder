@@ -134,7 +134,9 @@ The software will begin crawling the DigiByte network. You may need to wait or m
 
 Disconnect from the tmux session by pressing ```Ctrl-B```, followed by ```D```
 
-When you need to reconnect to the tmus session later, enter:
+### Check on your Seeder
+
+When you need to reconnect to the tmux session later, enter:
 
 $ ```tmux a -t dgbseeder```
 
