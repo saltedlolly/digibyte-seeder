@@ -1,7 +1,7 @@
 DigiByte Seeder
 ===============
 
-DigiByte-seeder is a crawler for the DigiByte network, which exposes a list of reliable nodes via a built-in DNS server.
+DigiByte Seeder is a crawler for the DigiByte network, which exposes a list of reliable nodes via a built-in DNS server.
 
 Features:
 * regularly revisits known nodes to check their availability
