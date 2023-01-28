@@ -11,8 +11,8 @@ Features:
 * very low memory (a few tens of megabytes) and cpu requirements.
 * crawlers run in parallel (by default 96 threads simultaneously).
 
-JOIN THE DIGIBYTE CRITICAL INFRASTRUCTURE TEAM (DGBCIT)
--------------------------------------------------------
+JOIN DIGIBYTE CRITICAL INFRASTRUCTURE TEAM (DGBCIT)
+---------------------------------------------------
 
 If you are intending to run a DigiByte Seeder, you are encouraged to join the [DGBCIT Telegram group](https://t.me/DGBCIT). The DigiByte Critical Infrastructure Team helps coordinate the seeders on the network. The team provides a detailed step-by-step tutorial for setting up your DigiByte Seeder and community support if you need help. Participation is optional but encouraged. Find the detailed tutorial [here](https://www.evernote.com/shard/s20/client/snv?noteGuid=46de28c1-9066-4ca5-8048-6f29f9e3bf52&noteKey=66077e0b3f969350ebefe4228d731425&sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs20%2Fsh%2F46de28c1-9066-4ca5-8048-6f29f9e3bf52%2F66077e0b3f969350ebefe4228d731425&title=Setting%2Bup%2Ba%2BDigiByte%2BSeeder). 
 
@@ -81,7 +81,6 @@ $ ```make```
 
 This will produce the `dnsseed` binary.
 
-
 START DIGIBYTE SEEDER
 ---------------------
 
@@ -140,8 +139,8 @@ When you need to reconnect to the tmux session later, enter:
 
 $ ```tmux a -t dgbseeder```
 
-TEST YOUR SEEDER
-----------------
+TEST DIGIBYTE SEEDER
+--------------------
 
 To verify that your DigiByte Seeder is setup correctly, open a web browser and visit:
 
@@ -149,8 +148,10 @@ To verify that your DigiByte Seeder is setup correctly, open a web browser and v
 
 Enter the domain you chose for your seeder. You should see a list of IP addresses returned for each location.
 
-RUNNING AS NON-ROOT
--------------------
+TROUBLESHOTING
+--------------
+
+### Running a Non-Root
 
 Typically, you'll need root privileges to listen to port 53 (name service).
 
@@ -166,8 +167,7 @@ Another solution is allowing a binary to bind to ports < 1024 with setcap (IPv6 
 
 $ ```setcap 'cap_net_bind_service=+ep' /path/to/dnsseed```
 
-RUNNING UNDER UBUNTU
--------------------
+### Running under Ubuntu
 
 All Ubuntu releases from 16.10 onwards come installed with systemd-resolved, which prevents the seeder from running effectively.
 
@@ -175,8 +175,7 @@ The recommended solution is to bind the seeder to a specific IP address
 
 $ ```./dnsseed -h seed.example.com -n vps.example.com -a 123.123.123.123```
 
-FIREWALL
---------
+### Firewall
 
 If you are still having a problem, try opening ports 53 and 5353 on your firewall:
 
