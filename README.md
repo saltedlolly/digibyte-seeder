@@ -50,15 +50,27 @@ Expected response: ```vps.example.com.   161    IN      A     123.123.123.123```
 COMPILE SOFTWARE
 ----------------
 
-Compiling will require boost and ssl.  On debian systems, these are provided by `libboost-dev` and `libssl-dev` respectively.
+These instructions are or Ubuntu or Debian. 
+
+Compiling will require boost and ssl.  On debian systems, these are provided by `libboost-dev` and `libssl-dev` respectively. 
+
+If running Debian, switch to root:
+
+$ ```su```
 
 Perform a system update:
 
-$ ```sudo apt-get update```
+Ubuntu: $ ```sudo apt-get update```
+Debian: $ ```apt-get update```
 
-Install the software packages needed to compile the DigiByte Seeder:
+Install required software packages for DigiByte Seeder on Ubuntu or Debian:
 
-$ ```sudo apt-get install gcc g++ build-essential libboost-all-dev libssl-dev```
+Ubuntu: $ ```sudo apt-get install gcc g++ build-essential libboost-all-dev libssl-dev git tmux iptables```
+Debian: $ ```apt-get install gcc g++ build-essential libboost-all-dev libssl-dev git tmux iptables```
+
+If running Debian, switch back to user account ('linuxuser' in this example):
+
+$ ```su linuxuser```
 
 Clone the DigiByte Seeder software into your home folder:
 
@@ -144,6 +156,35 @@ When you need to reconnect to the tmux session later, enter:
 
 $ ```tmux a -t dgbseeder```
 
+
+OPEN PORTS WHEN RUNNING AS NON-ROOT
+-----------------------------------
+
+Typically, you'll need root privileges to listen to port 53 (name service).
+
+One solution is using an iptables rule (Linux only) to redirect it to
+a non-privileged port.
+
+Ubuntu:
+$ ```iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353```
+
+On Debian:
+$ ```su```  (switch to root)
+$ ```/sbin/iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353```
+$ ```su linuxuser``` (switch back to user account)
+
+If properly configured, this will allow you to run dnsseed in userspace, using
+the ```-p 5353``` option.
+
+You can make this change persistent with:
+
+$ ```sudo apt-get install iptables-persistent -Y```
+
+Another solution is allowing a binary to bind to ports < 1024 with setcap (IPv6 access-safe)
+
+$ ```setcap 'cap_net_bind_service=+ep' /path/to/dnsseed```
+
+
 TEST DIGIBYTE SEEDER
 --------------------
 
@@ -159,26 +200,6 @@ For an example of what you should be seeing, look at the results for seed.digiby
 
 TROUBLESHOOTING
 --------------
-
-### Running as Non-Root
-
-Typically, you'll need root privileges to listen to port 53 (name service).
-
-One solution is using an iptables rule (Linux only) to redirect it to
-a non-privileged port:
-
-$ ```iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353```
-
-If properly configured, this will allow you to run dnsseed in userspace, using
-the ```-p 5353``` option.
-
-You can make this change persistent with:
-
-$ ```sudo apt-get install iptables-persistent```
-
-Another solution is allowing a binary to bind to ports < 1024 with setcap (IPv6 access-safe)
-
-$ ```setcap 'cap_net_bind_service=+ep' /path/to/dnsseed```
 
 ### Running under Ubuntu
 
