@@ -122,11 +122,11 @@ $ ```tmux new -s dgbseeder```
 
 To run a mainnet seeder, enter:
 
-$ ```sudo ./dnsseed -h seed.example.com -n vps.example.com -m email.example.com -p 5353 -a 123.123.123.123```
+$ ```./dnsseed -h seed.example.com -n vps.example.com -m email.example.com -p 5353 -a 123.123.123.123```
 
 To run a testnet seeder, enter:
 
-$ ```sudo ./dnsseed -h seed.example.com -n vps.example.com -m email.example.com -p 5353 -a 123.123.123.123 --testnet```
+$ ```./dnsseed -h seed.example.com -n vps.example.com -m email.example.com -p 5353 -a 123.123.123.123 --testnet```
 
 - Subsitute ```seed.example.com``` with the NS Host record.
 - Subsitute ```vps.example.com``` with the A Host record.
