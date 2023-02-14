@@ -4,10 +4,29 @@
 #  chmod +x /home/user/seedstartup.sh
 #------------------------
 #  crontab -e
-#  @reboot /home/user/seedstartup.sh
+#  @reboot sleep 30 & /home/user/seedstartup.sh
 #  **************_Script_**************
 
 #!/bin/sh
+
+# ==============================================================
+
+# Add your Digibyte Seeder credentials here:
+
+# This is the host URL e.g. seed.example.com
+SEEDER_ADDRESS=seed.example.com
+
+# This is the subdomain to identify your server e.g. seed.example.com
+SEEDER_SERVER=server.example.com
+
+# This is the SOA email. Replace the @ with a . so youremail@example.com become youremail.example.com
+SEEDER_EMAIL=youremail.example.com
+
+# The IP address of the server running your seeder
+SEEDER_SERVER_IP=123.123.123.123
+
+# ==============================================================
+
 
 SESSION="dgbseeder"
 SESSIONEXISTS=$(tmux list-sessions | grep $SESSION)
@@ -19,7 +38,7 @@ if [ "$SESSIONEXISTS" = "" ]
 then
     tmux new-session -d -s $SESSION
     tmux rename-window -t 0 'dgbseeder'
-    tmux send-keys -t 'dgbseeder' '' C-m 'cd digibyte-seeder' C-m clear C-m './dnsseed -h seed.example.com -n server.example.com -m email.example.com -p 5353 -a 123.123.123.123' C-m
+    tmux send-keys -t 'dgbseeder' '' C-m 'cd digibyte-seeder' C-m clear C-m "./dnsseed -h ${SEEDER_ADDRESS} -n ${SEEDER_SERVER} -m ${SEEDER_EMAIL} -p 5353 -a ${SEEDER_SERVER_IP}" C-m
     tmux ls
 else
   echo "Tmux session active! Open it with ´tmux a -t dgbseeder´"

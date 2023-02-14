@@ -203,6 +203,34 @@ For an example of what you should be seeing, look at the results for seed.digiby
 [https://www.whatsmydns.net/#A/seed.digibyte.org](https://www.whatsmydns.net/#A/seed.digibyte.org)
 
 
+STEP 6. SETUP DIGIBYTE SEEDER TO STARTUP AT BOOT
+------------------------------------------------
+
+You can use the included seedstartup.sh script to automatically startup your DigiByte Seeder when your system boots.
+
+Edit the script to include your server URLs and IP address:
+
+$ ```nano ~/digibyte-seeder/seedstart.sh```
+
+Save and exit. Copy the file to your home folder:
+
+$ ```cp ~/digibyte-seeder/seedstart.sh ~/```
+
+Make it executable:
+
+$ ```sudo chmod +x ~/digibyte-seeder/seedstart.sh```
+
+Edit cron:
+
+$ ```crontab -e```
+
+Add this value to the bottom of your cron file. Replace 'username' with your user account name.
+
+```@reboot sleep 30 & /home/username/seedstartup.sh```
+
+This will pause for 30 seconds at boot before launching your DigiByte Seeder. Adjust the duration if needed. Save and exit.
+
+
 TROUBLESHOOTING
 --------------
 
