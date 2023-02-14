@@ -165,7 +165,7 @@ Typically, you'll need root privileges to listen to port 53 (name service).
 One solution is using an iptables rule (Linux only) to redirect it to
 a non-privileged port.
 
-Ubuntu: $ ```iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353```
+Ubuntu: $ ```sudo iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353```
 
 Debian: $ ```su```  (switch to root)
 
