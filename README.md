@@ -68,9 +68,9 @@ Ubuntu: $ ```sudo apt-get install gcc g++ build-essential libboost-all-dev libss
 
 Debian: $ ```apt-get install gcc g++ build-essential libboost-all-dev libssl-dev git tmux iptables```
 
-If running Debian, switch back to user account ('linuxuser' in this example):
+If running Debian, switch back to your user account ('username' in this example):
 
-$ ```su linuxuser```
+$ ```su username```
 
 Clone the DigiByte Seeder software into your home folder:
 
@@ -171,7 +171,7 @@ Debian: $ ```su```  (switch to root)
 
 Debian: $ ```/sbin/iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353```
 
-Debian: $ ```su linuxuser``` (switch back to user account)
+Debian: $ ```su username``` (switch back to your user account - 'username' in this example)
 
 If properly configured, this will allow you to run dnsseed in userspace, using
 the ```-p 5353``` option.
