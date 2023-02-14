@@ -226,7 +226,7 @@ $ ```crontab -e```
 
 Add this value to the bottom of your cron file. Replace 'username' with your user account name.
 
-```@reboot sleep 30 & /home/username/seedstartup.sh```
+```@reboot sleep 30 && /home/username/seedstartup.sh```
 
 This will pause for 30 seconds at boot before launching your DigiByte Seeder. Adjust the duration if needed. Save and exit.
 
