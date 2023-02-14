@@ -167,18 +167,20 @@ a non-privileged port.
 
 Ubuntu: $ ```sudo iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353```
 
+Ubuntu: $ ```sudo apt-get install iptables-persistent -Y```
+
 Debian: $ ```su```  (switch to root)
 
 Debian: $ ```/sbin/iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353```
 
+Debian: $ ```apt install iptables-persistent -Y```
+
 Debian: $ ```su username``` (switch back to your user account - 'username' in this example)
 
 If properly configured, this will allow you to run dnsseed in userspace, using
-the ```-p 5353``` option.
+the ```-p 5353``` option. iptables-persistent is used to make the change stick after a reboot.
 
-You can make this change persistent with:
 
-$ ```sudo apt-get install iptables-persistent -Y```
 
 Another solution is allowing a binary to bind to ports < 1024 with setcap (IPv6 access-safe)
 
