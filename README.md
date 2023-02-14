@@ -190,12 +190,12 @@ $ ```./dnsseed -h seed.example.com -n vps.example.com -a 123.123.123.123```
 
 ### Firewall
 
-Be sure to check that port 53 is open on any external firewalls.
+Be sure to check that port 53 is open on any external firewall.
 
 If your system firewall is enabled, make sure you have opened port 53:
 
 $ ```sudo ufw allow 53```
 
-You can check the staus of your system firewall with:
+You can check the status of your system firewall with:
 
 $ ```sudo ufw status```
