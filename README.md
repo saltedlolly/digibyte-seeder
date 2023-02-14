@@ -50,9 +50,7 @@ Expected response: ```vps.example.com.   161    IN      A     123.123.123.123```
 COMPILE SOFTWARE
 ----------------
 
-These instructions are or Ubuntu or Debian. 
-
-Compiling will require boost and ssl.  On debian systems, these are provided by `libboost-dev` and `libssl-dev` respectively. 
+These instructions are for Ubuntu or Debian. Compiling will require boost and ssl.  On debian systems, these are provided by `libboost-dev` and `libssl-dev` respectively. 
 
 If running Debian, switch to root:
 
