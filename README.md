@@ -61,11 +61,13 @@ $ ```su```
 Perform a system update:
 
 Ubuntu: $ ```sudo apt-get update```
+
 Debian: $ ```apt-get update```
 
 Install required software packages for DigiByte Seeder on Ubuntu or Debian:
 
 Ubuntu: $ ```sudo apt-get install gcc g++ build-essential libboost-all-dev libssl-dev git tmux iptables```
+
 Debian: $ ```apt-get install gcc g++ build-essential libboost-all-dev libssl-dev git tmux iptables```
 
 If running Debian, switch back to user account ('linuxuser' in this example):
@@ -157,7 +159,7 @@ When you need to reconnect to the tmux session later, enter:
 $ ```tmux a -t dgbseeder```
 
 
-OPEN PORTS WHEN RUNNING AS NON-ROOT
+MAP PORT 53 WHEN RUNNING AS NON-ROOT
 -----------------------------------
 
 Typically, you'll need root privileges to listen to port 53 (name service).
@@ -165,13 +167,13 @@ Typically, you'll need root privileges to listen to port 53 (name service).
 One solution is using an iptables rule (Linux only) to redirect it to
 a non-privileged port.
 
-Ubuntu:
-$ ```iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353```
+Ubuntu: $ ```iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353```
 
-On Debian:
-$ ```su```  (switch to root)
-$ ```/sbin/iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353```
-$ ```su linuxuser``` (switch back to user account)
+Debian: $ ```su```  (switch to root)
+
+Debian: $ ```/sbin/iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353```
+
+Debian: $ ```su linuxuser``` (switch back to user account)
 
 If properly configured, this will allow you to run dnsseed in userspace, using
 the ```-p 5353``` option.
