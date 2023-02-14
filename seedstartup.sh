@@ -4,7 +4,7 @@
 #  chmod +x /home/user/seedstartup.sh
 #------------------------
 #  crontab -e
-#  @reboot sleep 30 & /home/user/seedstartup.sh
+#  @reboot sleep 30 && /home/user/seedstartup.sh
 #  **************_Script_**************
 
 #!/bin/sh
@@ -13,10 +13,10 @@
 
 # Add your Digibyte Seeder credentials here:
 
-# This is the host URL e.g. seed.example.com
+# This is the address of your seeder e.g. seed.example.com
 SEEDER_ADDRESS=seed.example.com
 
-# This is the subdomain to identify your server e.g. seed.example.com
+# This is the subdomain to identify your server e.g. server.example.com
 SEEDER_SERVER=server.example.com
 
 # This is the SOA email. Replace the @ with a . so youremail@example.com become youremail.example.com
