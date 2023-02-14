@@ -16,8 +16,10 @@ JOIN DIGIBYTE CRITICAL INFRASTRUCTURE TEAM (DGBCIT)
 
 If you are intending to run a DigiByte Seeder, you are encouraged to join the [DGBCIT Telegram group](https://t.me/DGBCIT). The DigiByte Critical Infrastructure Team helps coordinate the seeders on the network. The team provides a detailed step-by-step tutorial for setting up your DigiByte Seeder and community support if you need help. Participation is optional but encouraged. Find the detailed tutorial [here](https://www.evernote.com/shard/s20/client/snv?noteGuid=46de28c1-9066-4ca5-8048-6f29f9e3bf52&noteKey=66077e0b3f969350ebefe4228d731425&sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs20%2Fsh%2F46de28c1-9066-4ca5-8048-6f29f9e3bf52%2F66077e0b3f969350ebefe4228d731425&title=Setting%2Bup%2Ba%2BDigiByte%2BSeeder). 
 
-SETUP DNS RECORDS
------------------
+# SETUP A DIGIBYTE SEEDER
+
+STEP 1. SETUP DNS RECORDS
+-------------------------
 
 You need to use a domain name where you have access to the DNS settings. Assuming you want to run a DNS seed on seed.example.com, you will need an authorative NS record in example.com's domain record, pointing to for example vps.example.com. You will aslo need an A record for vps.example.com pointing at the IP address of the VPS.
 
@@ -47,8 +49,8 @@ Expected response: ```vps.example.com.   161    IN      A     123.123.123.123```
 
 (It should return the IP address of your VPS.)
 
-COMPILE SOFTWARE
-----------------
+STEP 2. COMPILE SOFTWARE
+------------------------
 
 These instructions are for Ubuntu or Debian. Compiling will require boost and ssl.  On debian systems, these are provided by `libboost-dev` and `libssl-dev` respectively. 
 
@@ -98,8 +100,8 @@ $ ```make```
 
 This will produce the `dnsseed` binary.
 
-START DIGIBYTE SEEDER
----------------------
+STEP 3. START DIGIBYTE SEEDER
+-----------------------------
 
 To view the software flag options, enter:
 
@@ -157,8 +159,8 @@ When you need to reconnect to the tmux session later, enter:
 $ ```tmux a -t dgbseeder```
 
 
-MAP PORT 53 WHEN RUNNING AS NON-ROOT
------------------------------------
+STEP 4. MAP PORT 53 WHEN RUNNING AS NON-ROOT
+--------------------------------------------
 
 Typically, you'll need root privileges to listen to port 53 (name service).
 
@@ -187,8 +189,8 @@ Another solution is allowing a binary to bind to ports < 1024 with setcap (IPv6 
 $ ```setcap 'cap_net_bind_service=+ep' /path/to/dnsseed```
 
 
-TEST DIGIBYTE SEEDER
---------------------
+STEP 5. TEST DIGIBYTE SEEDER
+----------------------------
 
 To verify that your DigiByte Seeder is setup correctly, open a web browser and visit:
 
@@ -199,6 +201,7 @@ Enter the domain you chose for your seeder. You should see a list of IP addresse
 For an example of what you should be seeing, look at the results for seed.digibyte.org here:
 
 [https://www.whatsmydns.net/#A/seed.digibyte.org](https://www.whatsmydns.net/#A/seed.digibyte.org)
+
 
 TROUBLESHOOTING
 --------------
