@@ -70,9 +70,9 @@ Ubuntu: $ ```sudo apt-get install gcc g++ build-essential libboost-all-dev libss
 
 Debian: $ ```apt-get install gcc g++ build-essential libboost-all-dev libssl-dev git tmux iptables```
 
-If running Debian, switch back to your user account ('username' in this example):
+If running Debian, switch back to your user account ('user' in this example):
 
-$ ```su username```
+$ ```su user```
 
 Clone the DigiByte Seeder software into your home folder:
 
@@ -177,7 +177,7 @@ Debian: $ ```/sbin/iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT -
 
 Debian: $ ```apt install iptables-persistent -Y```
 
-Debian: $ ```su username``` (switch back to your user account - 'username' in this example)
+Debian: $ ```su user``` (switch back to your user account - 'user' in this example)
 
 If properly configured, this will allow you to run dnsseed in userspace, using
 the ```-p 5353``` option. iptables-persistent is used to make the change stick after a reboot.
@@ -224,9 +224,9 @@ Edit cron:
 
 $ ```crontab -e```
 
-Add this value to the bottom of your cron file. Replace 'username' with your user account name.
+Add this value to the bottom of your cron file. Replace 'user' with your user account name.
 
-```@reboot sleep 30 && /home/username/seedstartup.sh```
+```@reboot sleep 30 && /home/user/seedstartup.sh```
 
 This will pause for 30 seconds at boot before launching your DigiByte Seeder. Adjust the duration if needed. Save and exit.
 
