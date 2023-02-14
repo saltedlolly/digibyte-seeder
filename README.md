@@ -70,9 +70,15 @@ If setting up a testnet node, you need to make a change to protocol.cpp:
 
 $ ```nano ~/digibyte-seeder/protocol.cpp```
 
-Change line 25 to: ```unsigned char pchMessageStart[4] = { 0xfd, 0xc8, 0xbd, 0xdd };```
+Change line 25 to: ```unsigned char pchMessageStart[4] = { 0xfd, 0xc8, 0xbd, 0xdd };``` 
 
-Compile the software:
+If you are also running a DigiByte full node on the same server, you need to make a change to main.cpp to add the loopback IP address:
+
+$ ```nano ~/digibyte-seeder/main.cpp```
+
+Change line 424 and 425 to add the loopback IP address: ```"127.0.0.1", ```. This will make it possible for the Seeder to connect directly to your local DigiByte full node.
+
+To compile the software:
 
 $ ```cd ~/digibyte-seeder```
 
@@ -124,7 +130,7 @@ $ ```sudo ./dnsseed -h seed.example.com -n vps.example.com -m email.example.com 
 
 - Subsitute ```seed.example.com``` with the NS Host record.
 - Subsitute ```vps.example.com``` with the A Host record.
-- Subsitute ```email.example.com``` with an email address that you can be reached at for the SOA records, substituting the @ for a period. So youremail@example.com would be youremail.example.com. [This can be omitted if desired - remove ```-m  email.example.com``` from the command.]
+- Subsitute ```email.example.com``` with an email address that you can be reached at for the SOA records, substituting the @ for a period. So youremail@example.com would be youremail.example.com.
 - Subsitute ```123.123.123.123``` with IP address of your VPS from Step 1.
 - If you are running testnet seeder, note that you must include the ```--testnet``` flag.
 
@@ -154,7 +160,7 @@ For an example of what you should be seeing, look at the results for seed.digiby
 TROUBLESHOOTING
 --------------
 
-### Running a Non-Root
+### Running as Non-Root
 
 Typically, you'll need root privileges to listen to port 53 (name service).
 
@@ -165,6 +171,10 @@ $ ```iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353`
 
 If properly configured, this will allow you to run dnsseed in userspace, using
 the ```-p 5353``` option.
+
+You can make this change persistent with:
+
+$ ```sudo apt-get install iptables-persistent```
 
 Another solution is allowing a binary to bind to ports < 1024 with setcap (IPv6 access-safe)
 
@@ -180,8 +190,12 @@ $ ```./dnsseed -h seed.example.com -n vps.example.com -a 123.123.123.123```
 
 ### Firewall
 
-If you are still having a problem, try opening ports 53 and 5353 on your firewall:
+Be sure to check that port 53 is open on any external firewalls as well.
 
-$ ```sudo ufw allow 5353```
+If your system firewall is enabled, make sure you have opened port 53:
 
 $ ```sudo ufw allow 53```
+
+You can check the staus of your system firewall with:
+
+$ ```sudo ufw status```
