@@ -16,38 +16,46 @@ JOIN DIGIBYTE CRITICAL INFRASTRUCTURE TEAM (DGBCIT)
 
 If you are intending to run a DigiByte Seeder, you are encouraged to join the [DGBCIT Telegram group](https://t.me/DGBCIT). The DigiByte Critical Infrastructure Team helps coordinate the seeders on the network. The team provides a detailed step-by-step tutorial for setting up your DigiByte Seeder and community support if you need help. Participation is optional but encouraged. Find the detailed tutorial [here](https://www.evernote.com/shard/s20/client/snv?noteGuid=46de28c1-9066-4ca5-8048-6f29f9e3bf52&noteKey=66077e0b3f969350ebefe4228d731425&sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs20%2Fsh%2F46de28c1-9066-4ca5-8048-6f29f9e3bf52%2F66077e0b3f969350ebefe4228d731425&title=Setting%2Bup%2Ba%2BDigiByte%2BSeeder). 
 
-# SETUP A DIGIBYTE SEEDER
+REQUIREMENTS
+------------
+
+To setup a DigiByte Seeder you need:
+
+- A server to run it on. A VPS is fine. It does not need many resources - DigiByte Seeder needs <1Gb RAM to run.
+- A domain name where you can edit the DNS settings.
+
+# HOW TO SETUP A DIGIBYTE SEEDER
 
 STEP 1. SETUP DNS RECORDS
 -------------------------
 
-You need to use a domain name where you have access to the DNS settings. Assuming you want to run a DNS seed on seed.example.com, you will need an authorative NS record in example.com's domain record, pointing to for example vps.example.com. You will aslo need an A record for vps.example.com pointing at the IP address of the VPS.
+Visit your domain name registrar and edit the DNS settings. Assuming you want to run a DNS seed on seed.example.com, you will need an authorative NS record in example.com's domain record, pointing to a subdomain to identify your server - e.g. server.example.com. You will also need an A record for server.example.com pointing at the IP address of the server.
 
 Create an NS record:
 
-- Host:     ```seed.example.com``` or ```testnetseed.example.com```  [ The desired address of your DigiByte Seeder. ]
-- Answer:   ```vps.example.com```                                         [ A URL to identify your VPS. ] 
+- Host:     ```seed.example.com``` or ```testnetseed.example.com```       [ The desired address of your DigiByte Seeder. ]
+- Answer:   ```server.example.com```                                      [ A subdomain to identify your Server. ] 
 
 Create an A record:
 
-- Host:     ```vps.example.com```                                        [ Use the same name you set above. ]
-- Answer:   ```123.123.123.123```                                           [ The IP address of your VPS. ] 
+- Host:     ```server.example.com```                                      [ Use the same subdomain you set above. ]
+- Answer:   ```123.123.123.123```                                         [ The IP address of your server. ] 
 
 Test the NS record:
 
 $ ```dig -t NS seed.example.com```
 
-Expected response: ```seed.example.com.   21600    IN      NS     vps.example.com.```
+Expected response: ```seed.example.com.   21600    IN      NS     server.example.com.```
 
-(It should return the URL you chose to identify your VPS.)
+(It should return the URL you chose to identify your server - e.g. server.example.com.)
 
 Test the A record:
 
-$ ```dig -t A vps.example.com```
+$ ```dig -t A server.example.com```
 
-Expected response: ```vps.example.com.   161    IN      A     123.123.123.123```
+Expected response: ```server.example.com.   161    IN      A     123.123.123.123```
 
-(It should return the IP address of your VPS.)
+(It should return the IP address of your server.)
 
 STEP 2. COMPILE SOFTWARE
 ------------------------
@@ -136,16 +144,16 @@ $ ```tmux new -s dgbseeder```
 
 To run a mainnet seeder, enter:
 
-$ ```./dnsseed -h seed.example.com -n vps.example.com -m email.example.com -p 5353 -a 123.123.123.123```
+$ ```./dnsseed -h seed.example.com -n server.example.com -m email.example.com -p 5353 -a 123.123.123.123```
 
 To run a testnet seeder, enter:
 
-$ ```./dnsseed -h seed.example.com -n vps.example.com -m email.example.com -p 5353 -a 123.123.123.123 --testnet```
+$ ```./dnsseed -h seed.example.com -n server.example.com -m email.example.com -p 5353 -a 123.123.123.123 --testnet```
 
 - Subsitute ```seed.example.com``` with the NS Host record.
-- Subsitute ```vps.example.com``` with the A Host record.
-- Subsitute ```email.example.com``` with an email address that you can be reached at for the SOA records, substituting the @ for a period. So youremail@example.com would be youremail.example.com.
-- Subsitute ```123.123.123.123``` with IP address of your VPS from Step 1.
+- Subsitute ```server.example.com``` with the A Host record.
+- Subsitute ```youremail.example.com``` with an email address that you can be reached at for the SOA records, substituting the @ for a period. So youremail@example.com would be youremail.example.com.
+- Subsitute ```123.123.123.123``` with IP address of your Server from Step 1.
 - If you are running testnet seeder, note that you must include the ```--testnet``` flag.
 
 The software will begin crawling the DigiByte network. You may need to wait or minute or two to see results coming in. Check that the available count is climbing. This is a good sign that it is working correctly.
@@ -196,7 +204,7 @@ To verify that your DigiByte Seeder is setup correctly, open a web browser and v
 
 [https://www.whatsmydns.net/#A/](https://www.whatsmydns.net/#A/)
 
-Enter the domain you chose for your seeder. You should see a list of IP addresses returned for each location.
+Enter the address you chose for your Seeder. You should see a list of IP addresses returned for each location.
 
 For an example of what you should be seeing, look at the results for seed.digibyte.org here:
 
@@ -208,7 +216,7 @@ STEP 6. SETUP DIGIBYTE SEEDER TO STARTUP AT BOOT
 
 You can use the included seedstartup.sh script to automatically startup your DigiByte Seeder when your system boots.
 
-Edit the script to include your server URLs and IP address:
+Edit the script to add your DigiByte Seeder credentials:
 
 $ ```nano ~/digibyte-seeder/seedstart.sh```
 
@@ -228,7 +236,7 @@ Add this value to the bottom of your cron file. Replace 'user' with your user ac
 
 ```@reboot sleep 30 && /home/user/seedstartup.sh```
 
-This will pause for 30 seconds at boot before launching your DigiByte Seeder. Adjust the duration if needed. Save and exit.
+When your server boots, it will pause for 30 seconds, before launching your DigiByte Seeder. Adjust the duration if needed. Save and exit.
 
 
 TROUBLESHOOTING
@@ -240,7 +248,7 @@ All Ubuntu releases from 16.10 onwards come installed with systemd-resolved, whi
 
 The recommended solution is to bind the seeder to a specific IP address
 
-$ ```./dnsseed -h seed.example.com -n vps.example.com -a 123.123.123.123```
+$ ```./dnsseed -h seed.example.com -n server.example.com -a 123.123.123.123```
 
 ### Firewall
 
