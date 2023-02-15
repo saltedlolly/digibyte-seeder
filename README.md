@@ -21,7 +21,7 @@ REQUIREMENTS
 
 To setup a DigiByte Seeder you need:
 
-- A server to run it on. A VPS is fine. It does not need many resources - DigiByte Seeder needs <1Gb RAM to run.
+- A server to run it on with a static IP address. A VPS is fine. It does not need many resources - DigiByte Seeder needs <1Gb RAM to run.
 - A domain name where you can edit the DNS settings.
 
 # HOW TO SETUP A DIGIBYTE SEEDER
