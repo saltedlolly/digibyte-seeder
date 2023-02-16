@@ -34,7 +34,9 @@ Visit your domain name registrar and edit the DNS settings. Assuming you want to
 Create an NS record:
 
 - Host:     ```seed.example.com``` or ```testnetseed.example.com```       [ The desired address of your DigiByte Seeder. ]
-- Answer:   ```server.example.com```                                      [ A subdomain to identify your Server. ] 
+- Answer:   ```server.example.com```                                      [ A subdomain to identify your server. ] 
+
+Note: Some providers do not allow you to add an NS record. You may need to move your domain to one that does, or setup a new one.
 
 Create an A record:
 
