@@ -38,7 +38,7 @@ Create an NS record:
 - Host:     ```seed.example.com``` or ```testnetseed.example.com```       [ The desired address of your DigiByte Seeder. ]
 - Answer:   ```server.example.com```                                      [ A subdomain to identify your server. ] 
 
-Note: Some providers do not allow you to add an NS record. You may need to move your domain to one that does, or setup a new one.
+Note: Some providers do not allow you to add an NS record. In that case, you may need to move your domain to one that does, or register a new one.
 
 Create an A record:
 
@@ -91,12 +91,6 @@ Clone the DigiByte Seeder software into your home folder:
 $ ```cd ~/```
 
 $ ```git clone https://github.com/DigiByte-Core/digibyte-seeder```
-
-If setting up a testnet node, you need to make a change to protocol.cpp:
-
-$ ```nano ~/digibyte-seeder/protocol.cpp```
-
-Change line 25 to: ```unsigned char pchMessageStart[4] = { 0xfd, 0xc8, 0xbd, 0xdd };``` 
 
 If you are also running a DigiByte full node on the same server, you need to make a change to main.cpp to add the loopback IP address:
 
