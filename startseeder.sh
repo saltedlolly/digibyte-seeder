@@ -1,10 +1,10 @@
 #  DigiByte Seeder Autostart Script
 #------------------------
 #  Place in the home directory
-#  chmod +x /home/user/seedstartup.sh
+#  chmod +x /home/user/startseeder.sh
 #------------------------
 #  crontab -e
-#  @reboot sleep 30 && /home/user/seedstartup.sh
+#  @reboot sleep 30 && /home/user/startseeder.sh
 #  **************_Script_**************
 
 #!/bin/sh
@@ -31,7 +31,7 @@ SEEDER_SERVER_IP=123.123.123.123
 SESSION="dgbseeder"
 SESSIONEXISTS=$(tmux list-sessions | grep $SESSION)
 if [ ! -d "digibyte-seeder/" ]; then
-  echo "Error: digibyte-seeder directory not found. Place seedstartup.sh in your home directory!"
+  echo "Error: digibyte-seeder directory not found. Place startseeder.sh in your home directory!"
   exit 1
 fi
 if [ "$SESSIONEXISTS" = "" ]

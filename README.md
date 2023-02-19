@@ -212,19 +212,19 @@ For an example of what you should be seeing, look at the results for seed.digiby
 STEP 6. SETUP DIGIBYTE SEEDER TO STARTUP AT BOOT
 ------------------------------------------------
 
-You can use the included seedstartup.sh script to automatically startup your DigiByte Seeder when your system boots.
+You can use the included startseeder.sh script to automatically startup your DigiByte Seeder when your system boots.
 
 Edit the script to add your DigiByte Seeder credentials:
 
-$ ```nano ~/digibyte-seeder/seedstart.sh```
+$ ```nano ~/digibyte-seeder/startseeder.sh```
 
 Save and exit. Copy the file to your home folder:
 
-$ ```cp ~/digibyte-seeder/seedstart.sh ~/```
+$ ```cp ~/digibyte-seeder/startseeder.sh ~/```
 
 Make it executable:
 
-$ ```sudo chmod +x ~/digibyte-seeder/seedstart.sh```
+$ ```sudo chmod +x ~/digibyte-seeder/startseeder.sh```
 
 Edit cron:
 
@@ -232,7 +232,7 @@ $ ```crontab -e```
 
 Add this value to the bottom of your cron file. Replace 'user' with your user account name.
 
-```@reboot sleep 30 && /home/user/seedstartup.sh```
+```@reboot sleep 30 && /home/user/startseeder.sh```
 
 When your server boots, it will pause for 30 seconds, before launching your DigiByte Seeder. Adjust the duration if needed. Save and exit.
 
