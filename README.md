@@ -25,14 +25,12 @@ The objectives of DGBCIT is to help:
 REQUIREMENTS
 ------------
 
-To improve decentralization, and mitigate single points of failure, it is requested that each person only run one mainnet seeder each. Some people can also run a testnet seeeder but we need less of those.
+**IMPORTANT**: To improve decentralization, mitigate single points of failure, and increase community participation, it is recommended that each person run a maximum of one mainnet seeder and one testnet seeder each. The network does not require many testnet seeders, so only a few people need run them.
 
 To setup a DigiByte Seeder you need:
 
-- A server to run it on with a static IP address. A VPS is fine. It does not need many resources - DigiByte Seeder needs <1Gb RAM to run.
+- A server to run it on with a static IP address. A VPS is fine. It does not need many resources - DigiByte Seeder needs <1Gb RAM to run. Note: Many VPS providers give you the option to chose from several geographic locations in which to run your server. To help better distribute the DigiByte Seeders around the globe, please try and choose a location where the network doesn't already have a Seeder, that is a good distance from any existing seeders. Feel free to discuss this in the [DGBCIT Telegram group](https://t.me/DGBCIT) to help choose a good location.
 - A domain name where you can edit the DNS settings.
-
-Note: Many VPS providers give you the option to chose from several geographic locations in which to run your server. To help better distribute the DigiByte Seeders around the globe, please try and choose a location where the network doesn't already have a Seeder, and a good distance from any existing seeders. Feel free to discuss this in the [DGBCIT Telegram group](https://t.me/DGBCIT) to help choose a good location.
 
 # HOW TO SETUP A DIGIBYTE SEEDER
 
