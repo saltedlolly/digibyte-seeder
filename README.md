@@ -181,13 +181,13 @@ a non-privileged port.
 
 Ubuntu: $ ```sudo iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353```
 
-Ubuntu: $ ```sudo apt-get install iptables-persistent -Y```
+Ubuntu: $ ```sudo apt-get install iptables-persistent -y```
 
 Debian: $ ```su```  (switch to root)
 
 Debian: $ ```/sbin/iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5353```
 
-Debian: $ ```apt install iptables-persistent -Y```
+Debian: $ ```apt install iptables-persistent -y```
 
 Debian: $ ```su user``` (switch back to your user account - 'user' in this example)
 
