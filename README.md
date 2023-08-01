@@ -16,7 +16,7 @@ JOIN DIGIBYTE CRITICAL INFRASTRUCTURE TEAM (DGBCIT)
 
 If you are intending to run a DigiByte Seeder, you are encouraged to join the DigiByte Critical Infrastructure Team (DGBCIT) which helps coordinate the seeders on the network. The team provides a detailed step-by-step tutorial for setting up your DigiByte Seeder and community support if you need help. Find the detailed tutorial [here](https://www.evernote.com/shard/s20/client/snv?noteGuid=46de28c1-9066-4ca5-8048-6f29f9e3bf52&noteKey=66077e0b3f969350ebefe4228d731425&sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs20%2Fsh%2F46de28c1-9066-4ca5-8048-6f29f9e3bf52%2F66077e0b3f969350ebefe4228d731425&title=Setting%2Bup%2Ba%2BDigiByte%2BSeeder). 
 
-Please join the discussion in the [DGBBCIT channel](https://discord.com/channels/878200503815782400/1133815334013509764) on the DigiByte Discord server. Participation is voluntary but encouraged. (If you are not already a member of the DigiByte Discord server, you can join [here](https://dsc.gg/DigiByteDiscord)).
+Please join the discussion in the [#DGBBCIT channel](https://discord.com/channels/878200503815782400/1133815334013509764) on the DigiByte Discord server. Participation is voluntary but encouraged. (If you are not already a member of the DigiByte Discord server, you can join [here](https://dsc.gg/DigiByteDiscord)).
 
 The objectives of DGBCIT is to help:
 
@@ -285,4 +285,4 @@ Add your mainnet seeder to the bottom of the list found at approximately line 14
 
 Add your testnet seeder to the bottom of the list found at approximately line 412.
 
-Note: Line numbers are likely to change over time. If you need help ask in the [#DGBCIT channel of the DigiByte Discord server](https://discord.com/channels/878200503815782400/1133815334013509764).
+Note: Line numbers are likely to change over time. If you need help ask in the [#DGBCIT channel](https://discord.com/channels/878200503815782400/1133815334013509764) of the DigiByte Discord server.
