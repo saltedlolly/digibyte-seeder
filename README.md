@@ -36,8 +36,8 @@ To setup a DigiByte Seeder you need:
 
 **IMPORTANT** - Before you begin please read this:
 
-- To improve decentralization, mitigate single points of failure, and increase community participation, it is recommended that each person run a maximum of one mainnet and/on testnet seeder each. The network does not require many testnet seeders, so only a few people need run them.
-- Many VPS providers (e.g. Digital Ocean) give you the option to chose from several geographic locations in which to host your VPS. To help better distribute the DigiByte Seeders around the globe, please try and choose a location where the network doesn't already have a Seeder, ideally a good distance from any existing seeders. Feel free to discuss this in the [DGBCIT Discord channel](https://discord.com/channels/878200503815782400/1133815334013509764) to help choose a good location. You can also refer the the [www.digibyteseed.com](http://digibyteseed.com/) website to the locations of the current DigiByte Seeders.
+- To improve decentralization, mitigate single points of failure, and increase community participation, it is recommended that each person run a maximum of one mainnet seeder and/or one testnet seeder each. The network does not require many testnet seeders, so only a few people need run them.
+- Many VPS providers (e.g. Digital Ocean) give you the option to chose from several geographic locations in which to host your VPS. To help better distribute the DigiByte Seeders around the globe, please try and choose a location where the network doesn't already have a Seeder, ideally a good distance from any existing seeders. You can refer to the [www.digibyteseed.com](http://digibyteseed.com/) website to see the locations of the current DigiByte Seeders. Feel free to discuss this in the [DGBCIT Discord channel](https://discord.com/channels/878200503815782400/1133815334013509764) to help choose a good location. 
 
 # HOW TO SETUP A DIGIBYTE SEEDER
 
