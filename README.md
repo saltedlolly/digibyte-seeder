@@ -274,15 +274,24 @@ You can check the status of your system firewall with:
 $ ```sudo ufw status```
 
 
-STEP 7. ADD YOUR DIGIBYTE SEEDER URL TO DIGIBYTE CORE
-----------------------------------------------------
+STEP 7. ADD YOUR DIGIBYTE SEEDER URL TO DIGIBYTE CORE & DIGIBYTE SEEDER SOFTWARE
+--------------------------------------------------------------------------------
 
-Once your seeder is up and running, the final step is to make a PR to add your seeder to the DigiByte codebase.
+Once your seeder is up and running, the final step is to make a PR to add your seeder URL to the DigiByte codebase.
 
-Go to the 'develop' branch of [DigiByte Core](https://github.com/DigiByte-Core/digibyte/tree/develop). Edit the /src/chainparams.cpp file [here](src/chainparams.cpp).
+On Github, clone the 'develop' branch of the [DigiByte-Core/digibyte](https://github.com/DigiByte-Core/digibyte/tree/develop) repo. 
 
-Add your mainnet seeder to the bottom of the list found at approximately line 145.
-
-Add your testnet seeder to the bottom of the list found at approximately line 412.
+You then need to edit the /src/chainparams.cpp file [here](https://github.com/DigiByte-Core/digibyte/blob/develop/src/chainparams.cpp):
+- Add your mainnet seeder to the bottom of the list found at approximately line 145.
+- Add your testnet seeder to the bottom of the list found at approximately line 412.
 
 Note: Line numbers are likely to change over time. If you need help ask in the [#DGBCIT channel](https://discord.com/channels/878200503815782400/1133815334013509764) of the DigiByte Discord server.
+
+Once, you are done, make a PR back to the main repo with your submitted changes.
+
+You will also want to add the URL of your seeder to the DigiByte Seeder software itself. Clone the DigiByte-Core/digibyte-seeder repo [here](https://github.com/DigiByte-Core/digibyte-seeder).
+
+You then need to edit the /main.cpp file [here](https://github.com/DigiByte-Core/digibyte-seeder/blob/master/main.cpp):
+- Add your mainnet or testnet seeder to the relevant line found at approximately line 425.
+
+Once, you are done, make a PR back to the main repo with your submitted changes.
