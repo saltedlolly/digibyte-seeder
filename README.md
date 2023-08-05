@@ -14,7 +14,9 @@ Features:
 JOIN DIGIBYTE CRITICAL INFRASTRUCTURE TEAM (DGBCIT)
 ---------------------------------------------------
 
-If you are intending to run a DigiByte Seeder, you are encouraged to join the [DGBCIT Telegram group](https://t.me/DGBCIT). The DigiByte Critical Infrastructure Team helps coordinate the seeders on the network. The team provides a detailed step-by-step tutorial for setting up your DigiByte Seeder and community support if you need help. Participation is optional but encouraged. Find the detailed tutorial [here](https://www.evernote.com/shard/s20/client/snv?noteGuid=46de28c1-9066-4ca5-8048-6f29f9e3bf52&noteKey=66077e0b3f969350ebefe4228d731425&sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs20%2Fsh%2F46de28c1-9066-4ca5-8048-6f29f9e3bf52%2F66077e0b3f969350ebefe4228d731425&title=Setting%2Bup%2Ba%2BDigiByte%2BSeeder). 
+If you are intending to run a DigiByte Seeder, you are encouraged to join the DigiByte Critical Infrastructure Team (DGBCIT) which helps coordinate the seeders on the network. The team provides a detailed step-by-step tutorial for setting up your DigiByte Seeder and community support if you need help. Find the detailed tutorial [here](https://www.evernote.com/shard/s20/client/snv?noteGuid=46de28c1-9066-4ca5-8048-6f29f9e3bf52&noteKey=66077e0b3f969350ebefe4228d731425&sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs20%2Fsh%2F46de28c1-9066-4ca5-8048-6f29f9e3bf52%2F66077e0b3f969350ebefe4228d731425&title=Setting%2Bup%2Ba%2BDigiByte%2BSeeder). 
+
+Please join the discussion in the [#DGBBCIT channel](https://discord.com/channels/878200503815782400/1133815334013509764) on the DigiByte Discord server. Participation is voluntary but encouraged. (If you are not already a member of the DigiByte Discord server, you can join [here](https://dsc.gg/DigiByteDiscord)).
 
 The objectives of DGBCIT is to help:
 
@@ -22,15 +24,20 @@ The objectives of DGBCIT is to help:
 * Distribute the Seeders geographically across the globe.
 * Distribute DigiByte Seeders across diferent providers.
 
+As a member of DGBCIT you pledge to keep your seeder online 24/7, and in the event you are no longer able to do so, you will get in touch with the team so that someone can be found to setup a replacement. 
+
 REQUIREMENTS
 ------------
 
-**IMPORTANT**: To improve decentralization, mitigate single points of failure, and increase community participation, it is recommended that each person run a maximum of one mainnet seeder and one testnet seeder each. The network does not require many testnet seeders, so only a few people need run them.
-
 To setup a DigiByte Seeder you need:
 
-- A server to run it on with a static IP address. A VPS is fine. It does not need many resources - DigiByte Seeder needs <1Gb RAM to run. Note: Many VPS providers give you the option to chose from several geographic locations in which to run your server. To help better distribute the DigiByte Seeders around the globe, please try and choose a location where the network doesn't already have a Seeder, that is a good distance from any existing seeders. Feel free to discuss this in the [DGBCIT Telegram group](https://t.me/DGBCIT) to help choose a good location.
+- A server to run it on with a static IP address. A VPS is fine. It does not need many resources - DigiByte Seeder needs <1Gb RAM to run. 
 - A domain name where you can edit the DNS settings.
+
+**IMPORTANT** - Before you begin please read this:
+
+- To improve decentralization, mitigate single points of failure, and increase community participation, it is recommended that each person run a maximum of one mainnet seeder and/or one testnet seeder each. The network does not require many testnet seeders, so only a few people need run them.
+- Many VPS providers (e.g. Digital Ocean) give you the option to chose from several geographic locations in which to host your VPS. To help better distribute the DigiByte Seeders around the globe, please try and choose a location where the network doesn't already have a Seeder, ideally a good distance from any existing seeders. You can refer to the [www.digibyteseed.com](http://digibyteseed.com/) website to see the locations of the current DigiByte Seeders. Feel free to discuss this in the [DGBCIT Discord channel](https://discord.com/channels/878200503815782400/1133815334013509764) to help choose a good location. 
 
 # HOW TO SETUP A DIGIBYTE SEEDER
 
@@ -265,3 +272,26 @@ $ ```sudo ufw allow 53```
 You can check the status of your system firewall with:
 
 $ ```sudo ufw status```
+
+
+STEP 7. ADD YOUR DIGIBYTE SEEDER URL TO DIGIBYTE CORE & DIGIBYTE SEEDER SOFTWARE
+--------------------------------------------------------------------------------
+
+Once your seeder is up and running, the final step is to make a PR to add your seeder URL to the DigiByte codebase.
+
+On Github, clone the 'develop' branch of the [DigiByte-Core/digibyte](https://github.com/DigiByte-Core/digibyte/tree/develop) repo. 
+
+You then need to edit the /src/chainparams.cpp file [here](https://github.com/DigiByte-Core/digibyte/blob/develop/src/chainparams.cpp):
+- Add your mainnet seeder to the bottom of the list found at approximately line 145.
+- Add your testnet seeder to the bottom of the list found at approximately line 412.
+
+Note: Line numbers are likely to change over time. If you need help ask in the [#DGBCIT channel](https://discord.com/channels/878200503815782400/1133815334013509764) of the DigiByte Discord server.
+
+Once, you are done, make a PR back to the main repo with your submitted changes.
+
+You will also want to add the URL of your seeder to the DigiByte Seeder software itself. Clone the DigiByte-Core/digibyte-seeder repo [here](https://github.com/DigiByte-Core/digibyte-seeder).
+
+You then need to edit the /main.cpp file [here](https://github.com/DigiByte-Core/digibyte-seeder/blob/master/main.cpp):
+- Add your mainnet or testnet seeder to the relevant line found at approximately line 425.
+
+Once, you are done, make a PR back to the main repo with your submitted changes.

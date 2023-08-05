@@ -421,7 +421,10 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-// The current list of DigiByte Seeders and who maintains them can be found pinned to the top of the DGBCIT Telegram group: https://t.me/DGBCIT
+// The current status of the DigiByte Seeders can be checked here: http://digibyteseed.com/
+// If you notice a problem with an exiting Seeder, please contact the DigiByte Critical Infrastructure team (DGBCIT) 
+// via the #DGBCIT channel on the DigiByte Discord server: https://discord.com/channels/878200503815782400/1133815334013509764
+// Alternatively, create an issue ticket here: https://github.com/DigiByte-Core/digibyte/issues
 
 static const string mainnet_seeds[] = {"seed.digibyte.io", "seed.digibyte.org", "seed.digibyteblockchain.org", "seed.digibyte.help", "eu.digibyteseed.com", "seed.digibyte.link", ""};
 static const string testnet_seeds[] = {"testseed.digibyteblockchain.org", "testnetseed.digibyte.help", "testnet.digibyteseed.com", "testnetseed.digibyte.link", ""};
