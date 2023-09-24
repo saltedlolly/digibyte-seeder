@@ -197,7 +197,7 @@ Enter the address you chose for your Seeder. You should see a list of IP address
 
 For an example of what you should be seeing, look at the results for seed.digibyte.org here:
 
-[https://www.whatsmydns.net/#A/seed.digibyte.org](https://www.whatsmydns.net/#A/seed.digibyte.org)
+[https://www.whatsmydns.net/#A/seed.digibyte.help](https://www.whatsmydns.net/#A/seed.digibyte.help)
 
 
 STEP 6. SETUP DIGIBYTE SEEDER TO STARTUP AT BOOT
@@ -205,15 +205,15 @@ STEP 6. SETUP DIGIBYTE SEEDER TO STARTUP AT BOOT
 
 You can use the included startseeder.sh script to automatically startup your DigiByte Seeder when your system boots.
 
-Edit the script to add your DigiByte Seeder credentials:
-
-$ ```nano ~/digibyte-seeder/startseeder.sh```
-
-Save and exit. Copy the file to your home folder:
+Copy the script to your home folder:
 
 $ ```cp ~/digibyte-seeder/startseeder.sh ~/```
 
-Make it executable:
+Edit the script to add your DigiByte Seeder credentials:
+
+$ ```nano ~/startseeder.sh```
+
+Save and exit. Make it executable:
 
 $ ```sudo chmod +x ~/digibyte-seeder/startseeder.sh```
 
