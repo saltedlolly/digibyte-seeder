@@ -215,15 +215,15 @@ $ ```nano ~/startseeder.sh```
 
 Save and exit. Make it executable:
 
-$ ```sudo chmod +x ~/digibyte-seeder/startseeder.sh```
+$ ```sudo chmod +x ~/startseeder.sh```
 
 Edit cron:
 
 $ ```crontab -e```
 
-Add this value to the bottom of your cron file. Replace 'user' with your user account name.
+Add this value to the bottom of your cron file. Replace '<user>' with your user account name.
 
-```@reboot sleep 30 && /home/user/startseeder.sh```
+```@reboot sleep 30 && /home/<user>/startseeder.sh```
 
 When your server boots, it will pause for 30 seconds, before launching your DigiByte Seeder. Adjust the duration if needed. Save and exit.
 
