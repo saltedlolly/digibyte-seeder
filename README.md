@@ -239,6 +239,8 @@ The recommended solution is to bind the seeder to a specific IP address
 
 $ ```./dnsseed -h seed.example.com -n server.example.com -a 123.123.123.123```
 
+If that does not work, you can also try [this](https://www.linuxuprising.com/2020/07/ubuntu-how-to-free-up-port-53-used-by.html).
+
 ### Firewall
 
 Be sure to check that port 53 is open on any external firewall.
